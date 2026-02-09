@@ -1,189 +1,261 @@
-/* Modern Color Palette & Variables */
+/* Minimalist & Aesthetic - 2 Color System */
 :root {
-    --primary-color: #6366f1;
-    --primary-hover: #4f46e5;
-    --secondary-color: #ec4899;
-    --background-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --text-main: #f8fafc;
-    --text-secondary: #94a3b8;
-    --success: #22c55e;
-    --danger: #ef4444;
-    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    --bg: #09090b;
+    /* Deep Matte Black */
+    --fg: #fafafa;
+    /* Crisp White */
+    --border: #27272a;
+    /* Subtle Dark Gray */
+    --accent: #fafafa;
+    /* White Accent */
+    --muted: #71717a;
+    /* Muted Text */
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background: var(--background-gradient);
-    min-height: 100vh;
-    color: var(--text-main);
+    background-color: var(--bg);
+    color: var(--fg);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding: 2rem;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    letter-spacing: -0.02em;
+    /* Tight typography for modern look */
 }
 
-/* Glassmorphism Container */
 .container {
     width: 100%;
-    max-width: 1200px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: 2rem;
-    box-shadow: var(--card-shadow);
-    animation: fadeIn 0.8s ease-out;
+    max-width: 900px;
+    /* Keep it focused */
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Header Section */
+/* Header - Big & Bold */
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
+    align-items: flex-end;
+    /* Align to bottom of text */
+    margin-bottom: 4rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--border);
 }
 
 h1 {
-    font-size: 2rem;
-    background: linear-gradient(to right, #818cf8, #e879f9);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 700;
+    font-size: 3.5rem;
+    /* Massive heading */
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--fg);
 }
 
-/* Button Styles */
+header p {
+    display: none;
+    /* Minimalist: Remove subtitle */
+}
+
+/* Buttons - Outline Style */
 .btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
-    border: none;
-    font-weight: 600;
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    padding: 0.8rem 1.6rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 6px;
+    /* Small radius */
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
 }
 
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+.btn:hover {
+    background: var(--fg);
+    color: var(--bg);
+    /* Invert colors on hover */
+    border-color: var(--fg);
 }
 
-.btn-primary:hover {
-    background: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
-}
 
-/* Table Styles */
+
+/* Table - Clean & airy */
 .table-container {
+    width: 100%;
     overflow-x: auto;
-    border-radius: 16px;
-    background: rgba(0, 0, 0, 0.2);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    white-space: nowrap;
-}
-
-thead {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-th,
-td {
-    padding: 1rem 1.5rem;
-    text-align: left;
+    font-size: 1rem;
 }
 
 th {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
+    text-align: left;
+    font-weight: 500;
+    color: var(--muted);
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-weight: 600;
 }
 
 td {
-    border-bottom: 1px solid var(--glass-border);
-    color: var(--text-main);
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg);
+    transition: color 0.2s;
 }
 
 tr:last-child td {
     border-bottom: none;
 }
 
-tbody tr {
-    transition: background-color 0.2s ease;
+tr:hover td {
+    background: #121215;
+    /* Extremely subtle hover row */
 }
 
-tbody tr:hover {
-    background: rgba(255, 255, 255, 0.03);
+/* Icons styling */
+i {
+    font-size: 0.9em;
 }
 
-/* Status Badge */
-.status-badge {
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 600;
+td button.btn {
+    border: none;
+    padding: 0.5rem;
+    opacity: 0.5;
 }
 
-.status-active {
-    background: rgba(34, 197, 94, 0.1);
-    color: var(--success);
-    border: 1px solid rgba(34, 197, 94, 0.2);
+td button.btn:hover {
+    background: transparent;
+    color: var(--fg);
+    opacity: 1;
+    transform: scale(1.1);
 }
 
-.status-inactive {
-    background: rgba(239, 68, 68, 0.1);
-    color: var(--danger);
-    border: 1px solid rgba(239, 68, 68, 0.2);
-}
-
-/* Loading State */
-.loading {
+/* Modal - Minimal Center */
+.modal {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9, 9, 11, 0.8);
+    /* Dark blur */
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 450px;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 0;
+    color: var(--fg);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 0;
+}
+
+input:focus {
+    border-bottom-color: var(--fg);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+/* Notifications/States */
+.loading,
+.empty-state,
+#error-message {
     text-align: center;
-    padding: 2rem;
-    color: var(--text-secondary);
+    padding: 4rem;
+    color: var(--muted);
+    font-weight: 300;
 }
 
 .spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid rgba(255, 255, 255, 0.1);
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border);
+    border-top-color: var(--fg);
     border-radius: 50%;
-    border-top-color: var(--primary-color);
-    animation: spin 1s linear infinite;
+    animation: spin 0.8s linear infinite;
     margin: 0 auto 1rem;
 }
 
 /* Animations */
-@keyframes fadeIn {
+@keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(40px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -193,108 +265,12 @@ tbody tr:hover {
     }
 }
 
-/* Modal Styles */
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Black w/ opacity */
-    backdrop-filter: blur(5px);
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-content {
-    background: #1e1b4b;
-    /* Match variable or dark blue */
-    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 2rem;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: var(--card-shadow);
-    animation: slideIn 0.3s ease-out;
-    position: relative;
-    color: var(--text-main);
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 1rem;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.close-btn:hover {
-    color: var(--text-main);
-}
-
-/* Form Styles */
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="number"] {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    border: 1px solid var(--glass-border);
-    background: rgba(255, 255, 255, 0.05);
-    /* slightly lighter than bg */
-    color: var(--text-main);
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s;
-}
-
-input:focus {
-    border-color: var(--primary-color);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-/* Animations */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Utility Override for Script Logic */
+/* Ensuring status badges (if any) are minimal */
+.status-badge {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    background: var(--border);
+    color: var(--fg);
 }

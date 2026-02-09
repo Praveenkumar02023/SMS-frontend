@@ -152,22 +152,17 @@ function renderStudents(students) {
 
         row.innerHTML = `
             <td>#${student.id}</td>
-            <td>
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <div style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-user" style="font-size: 0.8rem; color: var(--primary-color);"></i>
-                    </div>
-                    <span style="font-weight: 500;">${student.name}</span>
-                </div>
+            <td style="font-weight: 500;">
+                ${student.name}
             </td>
             <td>${student.age}</td>
-            <td style="color: var(--text-secondary);">${student.email}</td>
-            <td>
-                <button class="btn" style="padding: 0.5rem;" title="Edit" onclick="openModal(${studentData})">
-                    <i class="fas fa-edit hover-text-primary" style="color: var(--text-secondary);"></i>
+            <td style="color: var(--muted);">${student.email}</td>
+            <td style="text-align: right;">
+                <button class="btn" style="border: none; padding: 0.5rem; color: var(--fg); font-size: 0.8rem;" onclick="openModal(${studentData})">
+                    EDIT
                 </button>
-                <button class="btn" style="padding: 0.5rem;" title="Delete" onclick="deleteStudent(${idSafe})">
-                    <i class="fas fa-trash" style="color: var(--danger);"></i>
+                <button class="btn" style="border: none; padding: 0.5rem; color: var(--muted); font-size: 0.8rem;" onclick="deleteStudent(${idSafe})">
+                    DELETE
                 </button>
             </td>
         `;
